@@ -222,5 +222,7 @@ int main() {
 
     ejercicio42();
 
+    system("pause");
+
     return 0;
 }
