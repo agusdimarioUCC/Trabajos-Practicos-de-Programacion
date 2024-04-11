@@ -760,4 +760,5 @@ int main() {
     ejercicio31();
     ejercicio32();
     ejercicio33();
+    system("pause");
 }
