@@ -371,13 +371,57 @@ void ejercicio23() {
     }
 }
 
-void ejercicio24() {}
+void ejercicio24() {
+    int votos_candidato1 = 0, votos_candidato2 = 0, votos_candidato3 = 0, votos_candidato4 = 0, votos_en_blanco = 0;
+
+    int voto;
+
+    do {
+        cout << "Ingrese el voto (1, 2, 3, 4 o 0 para voto en blanco, -1 para finalizar): ";
+        cin >> voto;
+
+        switch (voto) {
+            case 1:
+                votos_candidato1++;
+                break;
+            case 2:
+                votos_candidato2++;
+                break;
+            case 3:
+                votos_candidato3++;
+                break;
+            case 4:
+                votos_candidato4++;
+                break;
+            case 0:
+                votos_en_blanco++;
+                break;
+            case -1:
+                break;
+            default:
+                cout << "Voto no válido. Intente nuevamente." << endl;
+        }
+    } while (voto != -1);
+
+    int total_votos = votos_candidato1 + votos_candidato2 + votos_candidato3 + votos_candidato4 + votos_en_blanco;
+
+    float porcentaje_candidato1 = votos_candidato1 / total_votos * 100;
+    float porcentaje_candidato2 = votos_candidato2 / total_votos * 100;
+    float porcentaje_candidato3 = votos_candidato3 / total_votos * 100;
+    float porcentaje_candidato4 = votos_candidato4 / total_votos * 100;
+    float porcentaje_en_blanco  = votos_en_blanco  / total_votos * 100;
+
+    cout << "\nResultados de la votación:" << endl;
+    cout << "Candidato 1: "     << votos_candidato1 << " votos (" << porcentaje_candidato1 << "%)" << endl;
+    cout << "Candidato 2: "     << votos_candidato2 << " votos (" << porcentaje_candidato2 << "%)" << endl;
+    cout << "Candidato 3: "     << votos_candidato3 << " votos (" << porcentaje_candidato3 << "%)" << endl;
+    cout << "Candidato 4: "     << votos_candidato4 << " votos (" << porcentaje_candidato4 << "%)" << endl;
+    cout << "Votos en blanco: " << votos_en_blanco  << " votos (" << porcentaje_en_blanco  << "%)" << endl;
+}
 
 void ejercicio25() {}
 
 void ejercicio26() {
-    // serie de Gregory-Leibniz! Uso valor absoluto.
-    //supuestamente la cantidad de iteraciones depende de la precisión.
     double impares = 1.0;
     int signo = 1;
     double mi_valor_pi = 4.0;
