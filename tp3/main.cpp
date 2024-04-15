@@ -409,14 +409,14 @@ void ejercicio24() {
     float porcentaje_candidato2 = votos_candidato2 / total_votos * 100;
     float porcentaje_candidato3 = votos_candidato3 / total_votos * 100;
     float porcentaje_candidato4 = votos_candidato4 / total_votos * 100;
-    float porcentaje_en_blanco  = votos_en_blanco  / total_votos * 100;
+    float porcentaje_en_blanco = votos_en_blanco / total_votos * 100;
 
     cout << "\nResultados de la votación:" << endl;
-    cout << "Candidato 1: "     << votos_candidato1 << " votos (" << porcentaje_candidato1 << "%)" << endl;
-    cout << "Candidato 2: "     << votos_candidato2 << " votos (" << porcentaje_candidato2 << "%)" << endl;
-    cout << "Candidato 3: "     << votos_candidato3 << " votos (" << porcentaje_candidato3 << "%)" << endl;
-    cout << "Candidato 4: "     << votos_candidato4 << " votos (" << porcentaje_candidato4 << "%)" << endl;
-    cout << "Votos en blanco: " << votos_en_blanco  << " votos (" << porcentaje_en_blanco  << "%)" << endl;
+    cout << "Candidato 1: " << votos_candidato1 << " votos (" << porcentaje_candidato1 << "%)" << endl;
+    cout << "Candidato 2: " << votos_candidato2 << " votos (" << porcentaje_candidato2 << "%)" << endl;
+    cout << "Candidato 3: " << votos_candidato3 << " votos (" << porcentaje_candidato3 << "%)" << endl;
+    cout << "Candidato 4: " << votos_candidato4 << " votos (" << porcentaje_candidato4 << "%)" << endl;
+    cout << "Votos en blanco: " << votos_en_blanco << " votos (" << porcentaje_en_blanco << "%)" << endl;
 }
 
 void ejercicio26() {
@@ -478,18 +478,78 @@ void ejercicio27() {
 
 void ejercicio28() {
     int suma = 0;
-    for(int i = 2; i <= 200; i += 2) {
+    for (int i = 2; i <= 200; i += 2) {
         suma += i;
     }
-    cout << "La suma de los números pares entre 2 y 200 es: " << suma << endl;}
+    cout << "La suma de los números pares entre 2 y 200 es: " << suma << endl;
+}
 
-void ejercicio29() {}
+void ejercicio29() {
+    int num1, num2, producto = 0;
 
-void ejercicio30() {}
+    cout << "Introduce el primer numero: ";
+    cin >> num1;
+    cout << "Introduce el segundo numero: ";
+    cin >> num2;
 
-void ejercicio31() {}
+    for (int i = 0; i < num2; i++) {
+        producto += num1;
+    }
 
-void ejercicio32() {}
+    cout << "El producto de " << num1 << " y " << num2 << " es: " << producto << endl;
+}
+
+void ejercicio30() {
+    int num1, num2, cociente = 0, resto;
+
+    cout << "Introduce el dividendo: ";
+    cin >> num1;
+    cout << "Introduce el divisor: ";
+    cin >> num2;
+
+    resto = num1;
+
+    while (resto >= num2) {
+        resto -= num2;
+        cociente++;
+    }
+
+    cout << "El cociente de la division es: " << cociente << endl;
+    cout << "El resto de la division es: " << resto << endl;
+}
+
+void ejercicio31() {
+    int base, exponente;
+    long long resultado = 1;
+
+    cout << "Introduce la base: ";
+    cin >> base;
+    cout << "Introduce el exponente: ";
+    cin >> exponente;
+
+    for (int i = 0; i < exponente; i++) {
+        resultado *= base;
+    }
+
+    cout << "El resultado de " << base << " elevado a " << exponente << " es: " << resultado << endl;
+}
+
+void ejercicio32() {
+    int num;
+
+    cout << "Introduce un numero positivo (0 para terminar): ";
+    cin >> num;
+
+    while (num != 0) {
+        cout << "El cuadrado de " << num << " es: " << num * num << endl;
+        cout << "El cubo de " << num << " es: " << num * num * num << endl;
+
+        cout << "Introduce otro numero positivo (0 para terminar): ";
+        cin >> num;
+    }
+
+    cout << "Has introducido el numero 0. El programa ha terminado." << endl;
+}
 
 void ejercicio33() {}
 
