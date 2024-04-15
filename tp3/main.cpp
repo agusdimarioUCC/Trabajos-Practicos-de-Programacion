@@ -419,8 +419,6 @@ void ejercicio24() {
     cout << "Votos en blanco: " << votos_en_blanco  << " votos (" << porcentaje_en_blanco  << "%)" << endl;
 }
 
-void ejercicio25() {}
-
 void ejercicio26() {
     double impares = 1.0;
     int signo = 1;
@@ -478,7 +476,12 @@ void ejercicio27() {
 
 }
 
-void ejercicio28() {}
+void ejercicio28() {
+    int suma = 0;
+    for(int i = 2; i <= 200; i += 2) {
+        suma += i;
+    }
+    cout << "La suma de los números pares entre 2 y 200 es: " << suma << endl;}
 
 void ejercicio29() {}
 
@@ -532,7 +535,6 @@ int main() {
     ejercicio22();
     ejercicio23();
     ejercicio24();
-    ejercicio25();
     ejercicio26();
     ejercicio27();
     ejercicio28();
