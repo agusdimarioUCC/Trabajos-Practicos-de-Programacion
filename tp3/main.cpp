@@ -1,16 +1,63 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
-void ejercicio1() {}
+void ejercicio2() {
+    int i = 1;
+    int sum = 0;
 
-void ejercicio2() {}
+    while (i <= 10) {
+        sum += i;
+        i++;
+    }
 
-void ejercicio3() {}
+    cout << "La sumatoria de los numeros enteros del 1 al 10 es: " << sum << endl;
+}
 
-void ejercicio4() {}
+void ejercicio3() {
+    double gasto = 0, suma = 0;
 
-void ejercicio5() {}
+    cout << "Ingrese los gastos. Ingrese un valor negativo para terminar." << endl;
+
+    cin >> gasto;
+    while (gasto >= 0) {
+        suma += gasto;
+        cin >> gasto;
+    }
+
+    cout << "La sumatoria de los gastos es: " << suma << endl;
+}
+
+void ejercicio4() {
+    int nota = 0;
+    double total = 0, cantidad = 0;
+    double promedio;
+
+    cout << "Ingrese las notas. Ingrese '0' para terminar." << endl;
+    cin >> nota;
+
+    while (nota != 0) {
+        total += nota;
+        cantidad++;
+        cin >> nota;
+    }
+    promedio = total / cantidad;
+    cout << "El promedio de las notas es: " << promedio << endl;
+
+}
+
+void ejercicio5() {
+    int num, max, i = 1;
+    cout << "Ingrese el numero para el cual desea ver la tabla de multiplicacion: ";
+    cin >> num;
+    cout << "Ingrese hasta que numero desea ver la tabla de multiplicacion: ";
+    cin >> max;
+    while (i <= max) {
+        cout << num << " * " << i << " = " << num * i << endl;
+        i++;
+    }
+}
 
 void ejercicio6() {
     int acumulador = 0;
@@ -41,9 +88,37 @@ void ejercicio7() {
     cout << "Se han generado " << contador << " numeros pares" << endl << endl;
 }
 
-void ejercicio8() {}
+void ejercicio8() {
+    int unidades = 1000;
+    int entrega = 0;
+    do {
+        cout << "cuantas unidades se entregan?";
+        cin >> entrega;
+        unidades -= entrega;
+    } while (unidades > 200);
+    cout << "alerta de menos de 200 unidades";
 
-void ejercicio9() {}
+}
+
+void ejercicio9() {
+    double sueldo;
+
+    do {
+        cout << "Ingrese el sueldo del , 0 para finalizar: ";
+        cin >> sueldo;
+
+        if (sueldo > 0) {
+            if (sueldo >= 18000) {
+                cout << "Su aumento es del 12%\n";
+                sueldo = sueldo * 1.12;
+            } else {
+                cout << "Su aumento es del 15%\n";
+                sueldo = sueldo * 1.15;
+            }
+            cout << "El sueldo con aumento es: $" << sueldo << endl;
+        }
+    } while (sueldo != 0);
+}
 
 void ejercicio10() {
     int contador = 0;
@@ -58,7 +133,7 @@ void ejercicio11() {
     int ingresado;
     int ceros = 0;
     for (int i = 0; i < 12; ++i) {
-        cout << endl << "ingrese un numero entero: ";
+        cout << endl << "ingrese 12 numeros enteros: ";
         cin >> ingresado;
         if (ingresado == 0) {
             ceros++;
@@ -67,45 +142,297 @@ void ejercicio11() {
     cout << "cantidad de veces que se ingreso el cero: " << ceros << endl;
 }
 
-void ejercicio12() {}
+void ejercicio12() {
+    int nro, cnro, mayor, menor;
+    for (cnro = 1; cnro <= 10; cnro++) {
+        cout << "Ingrese 10 numeros ";
+        cin >> nro;
+        if (cnro == 1) {
+            mayor = nro;
+            menor = nro;
+        } else {
+            if (mayor < nro) {
+                mayor = nro;
+            }
+            if (menor > nro) {
+                menor = nro;
+            }
+        }
+    }
+    cout << "El numero mayor de la serie fue " << mayor << endl;
+    cout << "EL numero menor de la serie fue " << menor << endl;
+}
 
-void ejercicio13() {}
+void ejercicio13() {
+    int nro, c, contceros = 0, contpos = 0, contneg = 0;
 
-void ejercicio14() {}
+    for (c = 1; c <= 10; c++) {
+        cout << "Ingrese 10 numeros ";
+        cin >> nro;
+        if (nro > 0) {
+            contpos++;
+        } else {
+            if (nro < 0) {
+                contneg++;
+            } else {
+                contceros++;
+            }
+        }
+    }
+    cout << "La cantidad de positivos fue " << contpos << endl;
+    cout << "La cantidad de negativos fue " << contneg << endl;
+    cout << "La cantidad de ceros fue " << contceros << endl;
+}
+
+void ejercicio14() {
+    int num, resultado = 1;
+
+    cout << "Ingrese un numero para calcular factorial: ";
+    cin >> num;
+
+    while (num >= 1) {
+        resultado = resultado * num;
+        num = num - 1;
+    }
+
+    cout << "El resultado del factorial es: " << resultado << endl;
+}
 
 void ejercicio15() {
-    int notas, suma, aprobados, desaprobados;
-    float promedio;
-    for (int i = 0; i < 10; ++i) {
-        cout << "ingrese nota: " << endl;
-        cin >> notas;
-        cout << notas;
+    int nota, aprobados = 0, desaprobados = 0, total = 0;
+
+    for (int i = 0; i < 10; i++) {
+        cout << "Ingrese la nota " << (i + 1) << ": ";
+        cin >> nota;
+
+        if (nota >= 4) {
+            aprobados++;
+        } else {
+            desaprobados++;
+        }
+
+        total += nota;
+    }
+
+    double promedio = total / 10;
+
+    cout << "Cantidad de aprobados: " << aprobados << endl;
+    cout << "Cantidad de desaprobados: " << desaprobados << endl;
+    cout << "Promedio: " << promedio << endl;
+}
+
+void ejercicio16() {
+    int num, pares = 0, impares = 0, nulos = 0;
+
+    for (int i = 0; i < 8; i++) {
+        cout << "Ingrese el número " << (i + 1) << ": ";
+        cin >> num;
+
+        if (num == 0) {
+            nulos++;
+        } else if (num % 2 == 0) {
+            pares++;
+        } else {
+            impares++;
+        }
+    }
+
+    cout << "Cantidad de números pares: " << pares << endl;
+    cout << "Cantidad de números impares: " << impares << endl;
+    cout << "Cantidad de números nulos: " << nulos << endl;
+
+
+}
+
+void ejercicio17() {
+    int cantidadTrabajadores;
+    double sueldo, totalSueldos = 0;
+
+    cout << "Ingrese la cantidad de trabajadores de la empresa: ";
+    cin >> cantidadTrabajadores;
+
+    for (int i = 0; i < cantidadTrabajadores; i++) {
+        cout << "Ingrese el sueldo del trabajador " << i++ << ": ";
+        cin >> sueldo;
+        totalSueldos += sueldo;
+    }
+
+    cout << "El monto que la empresa invierte en sueldos es: $" << totalSueldos << endl;
+}
+
+void ejercicio18() {
+    int num, cantDivisores = 0, denominador;
+
+    cout << "Ingrese un numero: ";
+    cin >> num;
+
+    for (denominador = 1; denominador <= num; denominador++) {
+        if (num % denominador == 0) {
+            cantDivisores++;
+            cout << "El numero es divisible en " << denominador << endl;
+        }
+    }
+
+    if (cantDivisores == 2) {
+        cout << "Es primo\n";
+    } else {
+        cout << "No es Primo\n";
     }
 }
 
-void ejercicio16() {}
+void ejercicio19() {
+    int num = 2;
 
-void ejercicio17() {}
+    while (num < 100) {
+        cout << num << endl;
+        num += 3;
+        cout << num << endl;
+        num += 2;
+    }
+}
 
-void ejercicio18() {}
+void ejercicio20() {
+    int numVentas, ventasMenor200 = 0, ventas200a400 = 0, ventasMayor400 = 0;
+    double monto;
 
-void ejercicio19() {}
+    cout << "Ingrese el número de ventas: ";
+    cin >> numVentas;
 
-void ejercicio20() {}
+    for (int i = 0; i < numVentas; i++) {
+        cout << "Ingrese el monto de la venta " << (i + 1) << ": ";
+        cin >> monto;
 
-void ejercicio21() {}
+        if (monto <= 200) {
+            ventasMenor200++;
+        } else if (monto > 200 && monto < 400) {
+            ventas200a400++;
+        } else {
+            ventasMayor400++;
+        }
+    }
 
-void ejercicio22() {}
+    cout << "Cantidad de ventas de $200 o menos: " << ventasMenor200 << endl;
+    cout << "Cantidad de ventas mayores a $200 inferiores a $400: " << ventas200a400 << endl;
+    cout << "Cantidad de ventas de $400 o más: " << ventasMayor400 << endl;
+}
 
-void ejercicio23() {}
+void ejercicio21() {
+    float valor = 1;
+    int N, signo = -1;
+    cout << "ingrese el valor de N ";
+    cin >> N;
+    for (int den = 2; den <= N; den++) {
+        valor = valor + ((1. / den) * signo);
+        signo = signo * (-1);
+    }
+    cout << "El valor de la serie es " << valor;
+}
+
+void ejercicio22() {
+    int ns, ns1, ns2, n;
+    do {
+        cout << "Ingrese la cantidad de terminos a mostrar ";
+        cin >> n;
+        if (n < 3) {
+            cout << "El valor ingresado debe ser mayor o igual a 3. Ingrese nuevamente" << endl;
+        }
+    } while (n < 3);
+    ns1 = 0;
+    ns2 = 1;
+    cout << ns1 << endl;
+    cout << ns2 << endl;
+    for (int i = 1; i <= n - 2; i++) {
+        ns = ns1 + ns2;
+        cout << ns << endl;
+        ns1 = ns2;
+        ns2 = ns;
+    }
+}
+
+void ejercicio23() {
+    int semilla;
+
+    do {
+        cout << "Ingrese la semilla para comenzar ";
+        cin >> semilla;
+        if (semilla < 1) {
+            cout << "El valor ingresado no es correcto. Ingrese nuevamente" << endl;
+        }
+    } while (semilla < 1);
+
+    cout << semilla << endl;
+    while (semilla > 1) {
+        if (semilla % 2 == 0) {
+            semilla = semilla / 2;
+        } else {
+            semilla = semilla * 3 + 1;
+        }
+        cout << semilla << endl;
+    }
+}
 
 void ejercicio24() {}
 
 void ejercicio25() {}
 
-void ejercicio26() {}
+void ejercicio26() {
+    // serie de Gregory-Leibniz! Uso valor absoluto.
+    //supuestamente la cantidad de iteraciones depende de la precisión.
+    double impares = 1.0;
+    int signo = 1;
+    double mi_valor_pi = 4.0;
+    int iteraciones = 0;
 
-void ejercicio27() {}
+    do {
+        mi_valor_pi = mi_valor_pi + (4.0 / (impares + 2)) * -signo;
+        impares = impares + 2;
+        signo = signo * (-1);
+        iteraciones++;
+    } while (abs(mi_valor_pi - M_PI) > 0.0005);
+
+    cout << "Valor calculado de pi: " << mi_valor_pi << endl;
+    cout << "Valor real de pi: " << M_PI << endl;
+    cout << "Las iteraciones necesarias fueron: " << iteraciones << endl;
+}
+
+void ejercicio27() {
+    char tipo;
+    int minutos, cantidadLocales = 0;
+    float costo, costoTotal = 0;
+
+    while (tipo != 's') {
+        cout << "Ingrese i=Internacional, n=Nacional, l=Local o s=Salir ";
+        cin >> tipo;
+
+        cout << "Ingrese la cantidad de minutos ";
+        cin >> minutos;
+
+        if (tipo == 'i') {
+            costo = 7.59;
+            if (minutos > 3) {
+                costo += (minutos - 3) * 3.03;
+            }
+        } else if (tipo == 'n') {
+            costo = 1.20;
+            if (minutos > 3) {
+                costo += (minutos - 3) * 0.48;
+            }
+        } else if (tipo == 'l') {
+            cantidadLocales++;
+            if (cantidadLocales > 50) {
+                costo = 0.60;
+            } else {
+                costo = 0;
+            }
+        }
+
+        cout << "Esta llamada cuesta " << costo << endl;
+        costoTotal += costo;
+    }
+
+    cout << "El costo total de llamadas es " << costoTotal << endl;
+
+}
 
 void ejercicio28() {}
 
@@ -138,91 +465,46 @@ void ejercicio41() {}
 void ejercicio42() {}
 
 int main() {
-    ejercicio1();
-
     ejercicio2();
-
     ejercicio3();
-
     ejercicio4();
-
     ejercicio5();
-
     ejercicio6();
-
     ejercicio7();
-
     ejercicio8();
-
     ejercicio9();
-
     ejercicio10();
-
     ejercicio11();
-
     ejercicio12();
-
     ejercicio13();
-
     ejercicio14();
-
     ejercicio15();
-
     ejercicio16();
-
     ejercicio17();
-
     ejercicio18();
-
     ejercicio19();
-
     ejercicio20();
-
     ejercicio21();
-
     ejercicio22();
-
     ejercicio23();
-
     ejercicio24();
-
     ejercicio25();
-
     ejercicio26();
-
     ejercicio27();
-
     ejercicio28();
-
     ejercicio29();
-
     ejercicio30();
-
     ejercicio31();
-
     ejercicio32();
-
     ejercicio33();
-
     ejercicio34();
-
     ejercicio35();
-
     ejercicio36();
-
     ejercicio37();
-
     ejercicio38();
-
     ejercicio39();
-
     ejercicio40();
-
     ejercicio41();
-
     ejercicio42();
-
-    system("pause");
-
     return 0;
 }
