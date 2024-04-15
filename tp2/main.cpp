@@ -1,5 +1,8 @@
+#pragma ide diagnostic ignored "cppcoreguidelines-narrowing-conversions"
+
 #include <iostream>
 #include <cmath>
+#include <locale.h>
 
 using namespace std;
 
@@ -51,7 +54,7 @@ void ejercicio6() {
     cin >> monto;
 
     if (formaDePago == 'e') {
-        monto = monto - monto * 0.10; // Aplica un descuento del 10%
+        monto = monto - monto * 0.10;
     }
 
     cout << "El monto final a pagar es: " << monto << endl;
@@ -138,14 +141,14 @@ void ejercicio12() {
     d = b * b - 4 * a * c;
     if (d == 0) {
         raiz1 = -b / (2 * a);
-        cout << "Raices reales dobles : " << raiz1 << endl;
+        cout << "Raíces reales dobles : " << raiz1 << endl;
     } else {
         if (d > 0) {
             raiz1 = (-b + sqrt(d)) / (2 * a);
             raiz2 = (-b - sqrt(d)) / (2 * a);
-            cout << "Raices reales y distintas : " << raiz1 << " , " << raiz2 << endl;
+            cout << "Raíces reales y distintas : " << raiz1 << " , " << raiz2 << endl;
         } else {
-            cout << "Raices complejas conjugadas" << endl;
+            cout << "Raíces complejas conjugadas" << endl;
         }
     }
 }
@@ -174,12 +177,11 @@ void ejercicio13() {
     cout << "La distancia al origen de coordenadas es " << distancia;
 }
 
-void ejercicio14() { //Variables Entrada
+void ejercicio14() {
     int duracion_llamada, min_adicionales;
-    //Variables de Salida
-    float costo;
+    double costo;
 
-    cout << "Ingrese cantidad de minutos que duro la llamada: " << endl;
+    cout << "Ingrese cantidad de minutos que duró la llamada: " << endl;
     cin >> duracion_llamada;
 
     if (duracion_llamada <= 3) {
@@ -229,7 +231,7 @@ void ejercicio16() {
             cout << "Martes" << endl;
             break;
         case 3:
-            cout << "Miercoles" << endl;
+            cout << "Miércoles" << endl;
             break;
         case 4:
             cout << "Jueves" << endl;
@@ -238,7 +240,7 @@ void ejercicio16() {
             cout << "Viernes" << endl;
             break;
         case 6:
-            cout << "Sabado" << endl;
+            cout << "Sábado" << endl;
             break;
         case 7:
             cout << "domingo" << endl;
@@ -253,9 +255,9 @@ void ejercicio17() {
     float sueldoHora, sueldoBruto, sueldoNeto;
     cout << "Ingrese el legajo del empleado ";
     cin >> legajo;
-    cout << "Ingrese la categoria del empleado ";
+    cout << "Ingrese la categoría del empleado ";
     cin >> categoria;
-    cout << "INgrese la cantidad de horas trabajadas ";
+    cout << "Ingrese la cantidad de horas trabajadas ";
     cin >> cantHoras;
     switch (categoria) {
         case 1:
@@ -369,14 +371,13 @@ void ejercicio20() {
     }
 }
 
-void ejercicio21() {  //Variables Entrada
+void ejercicio21() {
     int T, OP;
-    //Variables de Salida
-    float f_de_T;
+    double f_de_T;
 
     cout << "Ingrese el valor de T" << endl;
     cin >> T;
-    cout << "Ingrese la opcion" << endl;
+    cout << "Ingrese la opción" << endl;
     cin >> OP;
 
 
@@ -468,13 +469,13 @@ void ejercicio24() {
 }
 
 void ejercicio25() {
-    int Num;
+    int num;
     cout << "Ingresar el numero ";
-    cin >> Num;
-    if (Num % 2 == 0) {
-        cout << "El numero " << Num << " es par" << endl;
+    cin >> num;
+    if (num % 2 == 0) {
+        cout << "El numero " << num << " es par" << endl;
     } else {
-        cout << "El numero " << Num << " es impar" << endl;
+        cout << "El numero " << num << " es impar" << endl;
     }
 }
 
@@ -494,35 +495,32 @@ void ejercicio26() {
 }
 
 void ejercicio27() {
-    float Monto, descuento;
-    cout << "Ingrese el monto de la compra";
-    cin >> Monto;
-    if (Monto > 15000) {
-        descuento = Monto * 0.25;
+    float monto, descuento;
+    cout << "Ingrese el monto de la compra: ";
+    cin >> monto;
+
+    if (monto > 15000) {
+        descuento = monto * 0.25;
+    } else if (monto > 7000) {
+        descuento = monto * 0.18;
+    } else if (monto > 1000) {
+        descuento = monto * 0.11;
+    } else if (monto >= 500) {
+        descuento = monto * 0.05;
     } else {
-        if (Monto > 7000) {
-            descuento = Monto * 0.18;
-        } else {
-            if (Monto > 1000) {
-                descuento = Monto * 0.11;
-            } else {
-                if (Monto >= 500) {
-                    descuento = Monto * 0.05;
-                } else {
-                    descuento = 0;
-                }
-            }
-        }
+        descuento = 0;
     }
+
     cout << "El monto del descuento es " << descuento << endl;
-    cout << "El monto a pagar es " << Monto - descuento << endl;
+    cout << "El monto a pagar es " << monto - descuento << endl;
 }
+
 
 void ejercicio28() {
     int antiguedad, categoria;
-    cout << "Ingresar la categoria del empleado ";
+    cout << "Ingresar la categoría del empleado ";
     cin >> categoria;
-    cout << "Ingresar la antiguedad del empleado en años ";
+    cout << "Ingresar la antigüedad del empleado en años ";
     cin >> antiguedad;
     if (((categoria == 3 || categoria == 4) && antiguedad == 3) || antiguedad > 5) {
         cout << "El empleado es apto para el trabajo";
@@ -553,14 +551,14 @@ void ejercicio29() {
 }
 
 void ejercicio30() {
-    int anio, un, dec, cen, mil;
+    int anio, unidad, decena, centena, mil;
     cout << "Ingrese el valor del anio ";
     cin >> anio;
-    un = anio % 10;
+    unidad = anio % 10;
     anio /= 10;
-    dec = anio % 10;
+    decena = anio % 10;
     anio /= 10;
-    cen = anio % 10;
+    centena = anio % 10;
     anio /= 10;
     mil = anio % 10;
     anio /= 10;
@@ -569,7 +567,7 @@ void ejercicio30() {
     } else {
         cout << "MM";
     }
-    switch (cen) {
+    switch (centena) {
         case 1:
             cout << "C";
             break;
@@ -598,7 +596,7 @@ void ejercicio30() {
             cout << "CM";
             break;
     }
-    switch (dec) {
+    switch (decena) {
         case 1:
             cout << "X";
             break;
@@ -628,7 +626,7 @@ void ejercicio30() {
             break;
     }
 
-    switch (un) {
+    switch (unidad) {
         case 1:
             cout << "I";
             break;
@@ -687,22 +685,19 @@ void ejercicio31() {
     }
 }
 
-void ejercicio32() {  // Leer la hora en formato de 24 horas
+int ejercicio32() {
     string hora24;
     cout << "Ingrese la hora en formato 24 horas (HH:MM): ";
     cin >> hora24;
 
-    // Validar la entrada
     if (hora24.length() != 5 || hora24[2] != ':') {
         cout << "Entrada no válida. Debe ingresar la hora en formato HH:MM." << endl;
         return 1;
     }
 
-    // Extraer hora y minutos
     int hora = stoi(hora24.substr(0, 2));
     int minutos = stoi(hora24.substr(3, 2));
 
-    // Convertir a formato de 12 horas
     string hora12;
     string meridiano;
     if (hora >= 12) {
@@ -712,11 +707,11 @@ void ejercicio32() {  // Leer la hora en formato de 24 horas
         meridiano = "AM";
     }
 
-    // Formatear la salida
     hora12 = to_string(hora) + ":" + to_string(minutos) + " " + meridiano;
 
-    // Mostrar la salida
-    cout << "La hora en formato de 12 horas es: " << hora12 << endl;}
+    cout << "La hora en formato de 12 horas es: " << hora12 << endl;
+    return 0;
+}
 
 void ejercicio33() {
     int anio;
@@ -730,6 +725,7 @@ void ejercicio33() {
 }
 
 int main() {
+    setlocale(LC_ALL, "spanish"); //con esto puedo usar la ñ y las tildes en consola creo
     ejercicio3();
     ejercicio4();
     ejercicio5();
@@ -760,5 +756,5 @@ int main() {
     ejercicio31();
     ejercicio32();
     ejercicio33();
-    system("pause");
 }
+
