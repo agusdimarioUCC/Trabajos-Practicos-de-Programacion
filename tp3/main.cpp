@@ -590,11 +590,82 @@ void ejercicio34() {
     cout << "Cantidad de piezas no aptas: " << noAptas << " (" << porcentajeNoAptas << "%)" << endl;
 }
 
-void ejercicio35() {}
+void ejercicio35() {
+    int num, contador10 = 0, contador20 = 0, contador30 = 0, contador40 = 0, otros = 0;
 
-void ejercicio36() {}
+    cout << "Introduce un numero entero (99 para terminar): ";
+    cin >> num;
 
-void ejercicio37() {}
+    while (num != 99) {
+        switch (num) {
+            case 10:
+                contador10++;
+                break;
+            case 20:
+                contador20++;
+                break;
+            case 30:
+                contador30++;
+                break;
+            case 40:
+                contador40++;
+                break;
+            default:
+                otros++;
+        }
+
+        cout << "Introduce otro numero entero (99 para terminar): ";
+        cin >> num;
+    }
+
+    cout << "El numero 10 se presento " << contador10 << " veces." << endl;
+    cout << "El numero 20 se presento " << contador20 << " veces." << endl;
+    cout << "El numero 30 se presento " << contador30 << " veces." << endl;
+    cout << "El numero 40 se presento " << contador40 << " veces." << endl;
+    cout << "Se ingresaron " << otros << " numeros distintos de 10, 20, 30 y 40." << endl;
+}
+
+void ejercicio36() {
+    int A, B, sumatoria = 0, cantidad = 0;
+
+    cout << "Ingresar numero A: ";
+    cin >> A;
+    cout << "Ingresar numero B: ";
+    cin >> B;
+
+    cout << "Los numeros comprendidos entre ellos es:" << endl;
+    for (int i = A + 1; i < B; i++) {
+        cout << i << endl;
+        sumatoria += i;
+        cantidad++;
+    }
+
+    cout << "La cantidad de numeros es: " << cantidad << endl;
+    cout << "La sumatoria de numeros es: " << sumatoria << endl;
+}
+
+void ejercicio37() {
+    int A, B, C, menor, mayor, restante;
+
+    cout << "Ingresar numero A: ";
+    cin >> A;
+    cout << "Ingresar numero B: ";
+    cin >> B;
+    cout << "Ingresar numero C: ";
+    cin >> C;
+
+    // Determinar el menor y el mayor
+    menor = min(min(A, B), C);
+    mayor = max(max(A, B), C);
+
+    // Calcular el restante
+    restante = mayor - menor;
+
+    cout << "Los numeros comprendidos entre el menor y el doble del mayor son:" << endl;
+    for (int i = menor; i <= 2 * mayor; i += restante) {
+        cout << i << endl;
+    }
+}
 
 void ejercicio38() {}
 
@@ -604,7 +675,14 @@ void ejercicio40() {}
 
 void ejercicio41() {}
 
-void ejercicio42() {}
+void ejercicio42() {
+    for (int i = 10; i >= 1; i--) {
+        for (int c = 1; c <= i; c++) {
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
 
 int main() {
     ejercicio2();
