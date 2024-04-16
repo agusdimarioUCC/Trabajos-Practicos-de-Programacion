@@ -551,9 +551,44 @@ void ejercicio32() {
     cout << "Has introducido el numero 0. El programa ha terminado." << endl;
 }
 
-void ejercicio33() {}
+void ejercicio33() {
+    int num1, num2;
 
-void ejercicio34() {}
+    for (int i = 0; i < 10; i++) {
+        cout << "Introduce el par de numeros " << i + 1 << " (dos numeros separados por espacio): ";
+        cin >> num1 >> num2;
+
+        cout << "La suma de " << num1 << " y " << num2 << " es: " << num1 + num2 << endl;
+        cout << "El producto de " << num1 << " y " << num2 << " es: " << num1 * num2 << endl;
+    }
+}
+
+void ejercicio34() {
+    double longitud;
+    int total = 0, aptas = 0, noAptas = 0;
+
+    cout << "Introduce la longitud de la pieza (0 para terminar): ";
+    cin >> longitud;
+
+    while (longitud != 0) {
+        total++;
+
+        if (longitud >= 1.15 && longitud <= 1.20) {
+            aptas++;
+        } else {
+            noAptas++;
+        }
+
+        cout << "Introduce la longitud de la siguiente pieza (0 para terminar): ";
+        cin >> longitud;
+    }
+
+    double porcentajeAptas = aptas / total * 100;
+    double porcentajeNoAptas = noAptas / total * 100;
+
+    cout << "Cantidad de piezas aptas: " << aptas << " (" << porcentajeAptas << "%)" << endl;
+    cout << "Cantidad de piezas no aptas: " << noAptas << " (" << porcentajeNoAptas << "%)" << endl;
+}
 
 void ejercicio35() {}
 
